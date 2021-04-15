@@ -1,0 +1,31 @@
+
+@keyframes changeBtn {
+    0%{
+        color:#ff5e78;
+        background-color: #f7f6e7;
+
+    }100%{
+        background-color: #ff5e78;
+        color:#f7f6e7;
+    }
+}
+
+
+.app__main__item--list__content__items__btn{
+    color:#ff5e78;
+    background-color: #f7f6e7;
+    border:3px solid #ff5e78;
+    margin-left: 10px;
+    width:200px;
+    margin-top:20px;
+    font-weight: 600px;
+}
+
+.app__main__item--list__content__items__btn:hover{
+    background-color: #ff5e78;
+    color:#f7f6e7;
+    animation-name: changeBtn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+

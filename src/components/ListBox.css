@@ -1,0 +1,37 @@
+
+@keyframes changeBtn {
+    0%{
+        color:#ff5e78;
+        background-color: #f7f6e7;
+
+    }100%{
+        background-color: #ff5e78;
+        color:#f7f6e7;
+    }
+}
+
+.app__main__AllLists__lists__listBox__edit{
+    border: 1px solid #ff5e78;
+    color:#ff5e78;
+    border-radius: 10px;
+    width: 70px;
+    height: 30px;
+    background-color: #f7f6e7;
+    font-weight: 400;
+    font-size: 0.7rem;
+    position: relative;
+    bottom: 5px;
+    
+}
+
+.app__main__AllLists__lists__listBox__edit:hover{
+    background-color: #ff5e78;
+    color:#f7f6e7;
+
+        animation-name: changeBtn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    
+
+    
+}
