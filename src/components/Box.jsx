@@ -6,11 +6,11 @@ import OtherLists from './OtherLists';
 
 
 
-const Box = ({saveLists}) =>{
+const Box = ({updateList, editId, lists, saveLists}) =>{
     
     return <main className='app__main'>
     
-    <Detail /><List saveLists={saveLists} /><OtherLists />
+    <Detail /><List updateList={updateList} editId={editId} lists={lists} saveLists={saveLists} /><OtherLists />
     
     </main>
 }

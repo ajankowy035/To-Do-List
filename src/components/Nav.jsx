@@ -9,7 +9,6 @@ const Nav = () =>{
     <div className='app__header__nav__item app__header__nav__item--new'><Link href='/list' className='app__header__nav__item--new__text'>+ new List</Link></div>
     <Link href='/all' className='app__header__nav__item app__header__nav__item--my'>My Lists</Link>
     <Link href='/help' className='app__header__nav__item app__header__nav__item--help'>Help</Link>
-    <Link href='/logout' className='app__header__nav__item app__header__nav__item--logOut'>Log Out</Link>
 
 
 

@@ -125,3 +125,15 @@
     margin-left: 4%;
     padding-bottom: 50px;
 }
+
+.app__main__AllLists__lists__listBox__edit__delete{
+    height: 10px;
+    width: 10px;
+    margin-left: 350px;
+    opacity: 0.6;
+}
+
+.app__main__AllLists__lists__listBox__edit__delete:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}

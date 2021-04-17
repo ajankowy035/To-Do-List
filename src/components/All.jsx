@@ -2,9 +2,8 @@ import React from 'react';
 import ListBox from './ListBox';
 import './All.css';
 import EmptyBox from './icons/box.svg';
-import e from 'cors';
 
-const All = ({lists}) => {
+const All = ({deleteList, lists}) => {
 
     const changePath=(e)=>{
         e.preventDefault();
@@ -24,13 +23,13 @@ const All = ({lists}) => {
     {lists.length === 0 && <div className='app__main__empty'>
     <p className='app__main__empty__text'>Let's do this!</p>
     <p className='app__main__empty__comment'>It's soooo empty here! Click button below and create a new To Do List!</p>
-    <img className='app__main__empty__img' src={EmptyBox} />
+    <img className='app__main__empty__img' src={EmptyBox} alt='image of empty box' />
     <button className='app__main__empty__btn' onClick={changePath}>+ Create list</button>
     </div>}
 
     {lists.length > 0 && lists.map(list=>{
-        return<div className='app__main__AllLists__lists'> 
-        <ListBox key={list.id} title={list.title} modified={list.modified} />
+        return<div key={list.id} className='app__main__AllLists__lists'> 
+        <ListBox deleteList={deleteList} id={list.id} key={list.id} title={list.title} modified={list.modified} />
         </div>
     })}
     

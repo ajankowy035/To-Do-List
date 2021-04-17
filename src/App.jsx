@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Nav from './components/Nav';
 import Box from './components/Box';
 import Route from './components/Route';
@@ -8,20 +8,58 @@ import All from './components/All';
 const App = () =>{
     const [lists, setLists]=useState([]);
 
-    const saveLists = (title,items)=>{
-        const day = new Date();
-        const date = (day.getHours()<10? '0'+day.getHours():day.getHours())+':'+ (day.getMinutes()<10? '0'+ day.getMinutes(): day.getMinutes()) +' ' +(day.getDay()<10? '0'+ day.getDay(): day.getDay()) +'/' +(day.getMonth()<10? '0'+day.getMonth():day.getMonth()) + '/' + day.getFullYear();
+
+    const day = new Date();
+    const date = (day.getHours()<10? '0'+day.getHours():day.getHours())+':'+ (day.getMinutes()<10? '0'+ day.getMinutes(): day.getMinutes()) +' ' +(day.getDay()<10? '0'+ day.getDay(): day.getDay()) +'/' +(day.getMonth()<10? '0'+day.getMonth():day.getMonth()) + '/' + day.getFullYear();
         
+
+    React.useEffect(()=>{
+        const temp = localStorage.getItem('lists');
+        const loaded = JSON.parse(temp);
+
+        if(loaded){
+            setLists(loaded);
+        }
+    },[])
+
+    useEffect(()=>{
+        const temp = JSON.stringify(lists);
+        localStorage.setItem('lists',temp)
+    },[lists]);
+
+    const updateList = (id,title,items)=>{
+        console.log(id);
+
+        const updatedLists = lists.filter(list=>list.id!==id);
+        setLists([...updatedLists]);
+        
+        const updatedList = {
+            id:id,
+            title: title,
+            items: [...items],
+            modified: date
+        }
+        
+        setLists([...updatedLists,updatedList]);
+
+        return;
+    }
+
+    const saveLists = (title,items)=>{
+
         if (items.length===0){
             alert('It looks You try to save an empty To Do List! Try to plan some big things in little steps!')
-            return};
-
+            return
+        };
+            
+        
         const newList = {
             id:new Date().getTime(),
             title: title,
             items: [...items],
             modified: date
         }
+        
 
         //Verification if current list title is free
         
@@ -35,23 +73,32 @@ const App = () =>{
         if(!titleVerifiction){
             setLists([...lists].concat(newList));
             titleVerifiction=false;
+            window.location.pathname=`/${newList.id}`
         }else{
             alert('You have already created To To List with that title, please change it!');
             titleVerifiction=false;
             return;
         }
-        // console.log(newList);
-
-        
-
-        // console.log([...lists]);
 
     }
 
+    const deleteList=(id)=>{
+        // console.log(id);
+        const updatedLists = lists.filter(list=>list.id!==id);
+        setLists([...updatedLists]);
+    }
+        
     return (<article className='app' >
     <Nav />
+
+    {lists.map(list=>{
+        return (<Route path={`/${list.id}`} >
+        <Box updateList={updateList} editId={list.id} title={list.title} lists={lists} saveLists={saveLists} />
+        </Route>);
+    })}
+
     <Route path='/list' >
-        <Box  saveLists={saveLists} />
+        <Box updateList={updateList} editId={false} lists={lists} saveLists={saveLists} />
     </Route>
 
     <Route path= '/'>
@@ -59,8 +106,9 @@ const App = () =>{
     </Route>
 
     <Route path='/all'>
-        <All lists={[...lists]} />
+        <All deleteList={deleteList} lists={lists} />
     </Route>
+
     </article>)
 }
 
