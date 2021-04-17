@@ -7,13 +7,12 @@ import All from './components/All';
 import './components/css/App.css';
 
 const App = () =>{
-    const [lists, setLists]=useState([]);
-
-
+    const [lists, setLists]=useState([]);//setting current lists
+    //define the current date for saving list modification - date of updates or creating new list 
     const day = new Date();
     const date = (day.getHours()<10? '0'+day.getHours():day.getHours())+':'+ (day.getMinutes()<10? '0'+ day.getMinutes(): day.getMinutes()) +' ' +(day.getDay()<10? '0'+ day.getDay(): day.getDay()) +'/' +(day.getMonth()<10? '0'+day.getMonth():day.getMonth()) + '/' + day.getFullYear();
-        
-
+    
+    //using effect for locally storing lists
     React.useEffect(()=>{
         const temp = localStorage.getItem('lists');
         const loaded = JSON.parse(temp);
@@ -28,12 +27,13 @@ const App = () =>{
         localStorage.setItem('lists',temp)
     },[lists]);
 
+    //Update of existing list : getting parametrs from List component
     const updateList = (id,title,items)=>{
         console.log(id);
 
         const updatedLists = lists.filter(list=>list.id!==id);
-        setLists([...updatedLists]);
-        
+        setLists([...updatedLists]);//when changes are saving, old list is removing
+        //it is replacing with new list with the same id
         const updatedList = {
             id:id,
             title: title,
