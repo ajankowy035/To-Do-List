@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import Delete from './icons/delete.svg';
 import Button from './Button';
+import './css/List.css';
 
 
 
@@ -74,6 +75,7 @@ const List=({editId, updateList, lists, saveLists})=>{
     })
 
     return (
+    <main className='app__main'>
     <article className='app__main__item app__main__item--list'>
     <section className='app__main__item app__main__item--list__content'>
     <form onSubmit={saveItem}  className='app__main__item app__main__item--list__content__form'>
@@ -90,6 +92,7 @@ const List=({editId, updateList, lists, saveLists})=>{
 
     </section>
     </article> 
+    </main>
 
     )
 }

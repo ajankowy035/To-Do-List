@@ -1,0 +1,21 @@
+html {
+  font-size: 18px;
+}
+
+.check {
+  text-decoration: line-through;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+body {
+  font-family: 'Ubuntu Condensed', sans-serif;
+  background-color: #e7e6e1;
+  color: #314e52;
+  margin: 0;
+}
+
+body button, body input {
+  outline: none;
+}
+/*# sourceMappingURL=App.css.map */

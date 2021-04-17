@@ -1,0 +1,90 @@
+$colors:(
+    to:#ffe227,
+    do:#845ec2,
+    list:#ff5e78,
+    text:#314e52,
+    bg:#e7e6e1,
+    boxBg:#f7f6e7
+);
+
+@function color($colorname){
+    @return map-get($colors, $colorname )
+}
+
+
+$rad:10px;
+
+html{
+    font-size: 18px;
+}
+
+.app{
+    &__header{
+        display: flex;
+        background-color: color(boxBg);
+        height: 50px;
+
+        &__logo{
+            position: relative;
+            bottom: 10px;
+            margin-left:5%;
+            font-family: 'Lobster', cursive;
+            &__to{
+                color: color(to);
+            }
+            &__do{
+                color:color(do);
+            }
+            &__list{
+                color:color(list);
+            }
+        }
+
+        &__nav{
+            display: flex;
+            margin-left: 40%;
+            margin-top: 10px;
+            
+
+            &__item{
+                margin-left: 40px;
+                width:80px;
+                color: color(text);
+                text-decoration: none;
+
+
+                &--new{
+                    border:3px solid color(list);
+                    border-radius: $rad;
+                    padding: 5px;
+                    text-align: center;
+                    height: 20px;
+
+                    &__text{
+                        text-decoration: none;
+                        color: color(list);
+                        font-weight: 600;
+
+
+                    }
+                    &__text:hover{
+                        color: darken(color(list),5%);
+
+                    }
+                    
+                }
+                
+                &--my{
+                    margin-top: 5px;
+                }
+                &--help{
+                    margin-top: 5px;
+                }
+                &--logOut{
+                    margin-top: 5px;
+
+                }
+            }
+        }
+    }
+}

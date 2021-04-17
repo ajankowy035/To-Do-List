@@ -1,0 +1,39 @@
+$colors:(
+    to:#ffe227,
+    do:#845ec2,
+    list:#ff5e78,
+    text:#314e52,
+    bg:#e7e6e1,
+    boxBg:#f7f6e7
+);
+
+@function color($colorname){
+    @return map-get($colors, $colorname )
+}
+
+
+$rad:10px;
+
+html{
+    font-size: 18px;
+}
+
+.check{
+    text-decoration: line-through;
+    font-weight: 400;
+    opacity: 0.7;
+
+
+}
+
+body{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background-color: color(bg);
+    color: color(text);
+    margin:0;
+
+    button, input{
+        outline: none;
+    }
+
+}

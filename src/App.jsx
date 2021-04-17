@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import Nav from './components/Nav';
-import Box from './components/Box';
+import List from './components/List';
 import Route from './components/Route';
 import Login from './components/Login';
 import All from './components/All';
+import './components/css/App.css';
 
 const App = () =>{
     const [lists, setLists]=useState([]);
@@ -93,12 +94,12 @@ const App = () =>{
 
     {lists.map(list=>{
         return (<Route path={`/${list.id}`} >
-        <Box updateList={updateList} editId={list.id} title={list.title} lists={lists} saveLists={saveLists} />
+        <List updateList={updateList} editId={list.id} title={list.title} lists={lists} saveLists={saveLists} />
         </Route>);
     })}
 
     <Route path='/list' >
-        <Box updateList={updateList} editId={false} lists={lists} saveLists={saveLists} />
+        <List updateList={updateList} editId={false} lists={lists} saveLists={saveLists} />
     </Route>
 
     <Route path= '/'>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ListBox from './ListBox';
-import './All.css';
+import './css/All.css';
 import EmptyBox from './icons/box.svg';
 
 const All = ({deleteList, lists}) => {

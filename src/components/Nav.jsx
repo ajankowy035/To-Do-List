@@ -1,6 +1,7 @@
 import React from 'react';
-import Link from './Link'
-;
+import Link from './Link';
+import './css/Nav.css';
+
 const Nav = () =>{
     return <article className='app__header'>
     <h4 className='app__header__logo'><span className='app__header__logo__to'>TO</span><span className='app__header__logo__do'> DO </span><span className='app__header__logo__list'>LIST</span></h4>
