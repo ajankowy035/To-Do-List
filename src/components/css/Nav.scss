@@ -11,6 +11,31 @@ $colors:(
     @return map-get($colors, $colorname )
 }
 
+@keyframes showBorder {
+    0%{
+        border-bottom: 3px solid color(boxBg);
+
+    }100%{
+        border-bottom: 3px solid color(list);
+
+    }
+}
+
+@keyframes changeButton {
+    0%{
+        background-color: color(boxBg);
+        transform: scale(1);
+        color: color(list);
+
+    }75%{
+        background-color: color(list);
+        color: color(boxBg);
+    }100%{
+        transform: scale(1.05);
+
+    }
+}
+
 
 $rad:10px;
 
@@ -38,6 +63,8 @@ html{
             &__list{
                 color:color(list);
             }
+
+           
         }
 
         &__nav{
@@ -51,38 +78,56 @@ html{
                 width:80px;
                 color: color(text);
                 text-decoration: none;
+                    
 
-
-                &--new{
-                    border:3px solid color(list);
-                    border-radius: $rad;
-                    padding: 5px;
-                    text-align: center;
-                    height: 20px;
-
-                    &__text{
+                    &__new{
                         text-decoration: none;
                         color: color(list);
                         font-weight: 600;
+                        border:3px solid color(list);
+                        border-radius: $rad;
+                        padding: 5px;
+                        text-align: center;
+                        height: 20px;
+                        width: 80px;
+                        &:hover{
+                            color: color(boxBg);
+                            background-color: color(list);
+                            transform: scale(1.05);
 
+                            animation-name: changeButton;
+                            animation-duration: 0.4s;
+                            animation-timing-function: ease-in-out;
+                        }
 
                     }
-                    &__text:hover{
-                        color: darken(color(list),5%);
-
-                    }
+                   
                     
-                }
                 
-                &--my{
+                &__my{
                     margin-top: 5px;
+                    width: 80px;
+                    border-bottom: 3px solid color(boxBg);
+                    text-align: center;
+                    &:hover{
+                        border-bottom: 3px solid color(list);
+                        animation-name: showBorder;
+                        animation-duration: 0.5s;
+                        animation-timing-function: ease-out;
+                    }
                 }
-                &--help{
+                &__help{
                     margin-top: 5px;
-                }
-                &--logOut{
-                    margin-top: 5px;
+                    text-align: center;
+                    width: 80px;
+                    border-bottom: 3px solid color(boxBg);
 
+                    &:hover{
+                        border-bottom: 3px solid color(list);
+                        animation-name: showBorder;
+                        animation-duration: 0.5s;
+                        animation-timing-function: ease-out;
+                    }
                 }
             }
         }

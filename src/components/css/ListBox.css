@@ -1,37 +1,122 @@
-
-@keyframes changeBtn {
-    0%{
-        color:#ff5e78;
-        background-color: #f7f6e7;
-
-    }100%{
-        background-color: #ff5e78;
-        color:#f7f6e7;
-    }
+html {
+  font-size: 18px;
 }
 
-.app__main__AllLists__lists__listBox__edit{
-    border: 1px solid #ff5e78;
-    color:#ff5e78;
-    border-radius: 10px;
-    width: 70px;
-    height: 30px;
+@-webkit-keyframes changeButton {
+  0% {
     background-color: #f7f6e7;
-    font-weight: 400;
-    font-size: 0.7rem;
-    position: relative;
-    bottom: 5px;
-    
-}
-
-.app__main__AllLists__lists__listBox__edit:hover{
+    color: #ff5e78;
+  }
+  100% {
     background-color: #ff5e78;
-    color:#f7f6e7;
-
-        animation-name: changeBtn;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    
-
-    
+    color: #f7f6e7;
+  }
 }
+
+@keyframes changeButton {
+  0% {
+    background-color: #f7f6e7;
+    color: #ff5e78;
+  }
+  100% {
+    background-color: #ff5e78;
+    color: #f7f6e7;
+  }
+}
+
+@-webkit-keyframes changeImg {
+  0% {
+    opacity: 0.6;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes changeImg {
+  0% {
+    opacity: 0.6;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+.app__main__AllLists__lists__listBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #314e52;
+  margin-right: 6%;
+  margin-left: 1%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.app__main__AllLists__lists__listBox__title {
+  margin-left: 4%;
+  font-size: 1rem;
+  width: 150px;
+}
+
+.app__main__AllLists__lists__listBox__title:hover {
+  color: #ff5e78;
+  cursor: pointer;
+}
+
+.app__main__AllLists__lists__listBox__time {
+  margin-left: 20%;
+  font-size: 0.8rem;
+}
+
+.app__main__AllLists__lists__listBox__edit {
+  background-color: #f7f6e7;
+  border: 2px solid #ff5e78;
+  color: #ff5e78;
+  border-radius: 10px;
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.app__main__AllLists__lists__listBox__edit:hover {
+  background-color: #ff5e78;
+  color: #f7f6e7;
+  -webkit-animation-name: changeButton;
+          animation-name: changeButton;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+.app__main__AllLists__lists__listBox__delete {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  margin-left: 25%;
+}
+
+.app__main__AllLists__lists__listBox__delete:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-animation-name: changeImg;
+          animation-name: changeImg;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+/*# sourceMappingURL=ListBox.css.map */

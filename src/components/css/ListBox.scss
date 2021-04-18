@@ -1,0 +1,100 @@
+$colors:(
+    to:#ffe227,
+    do:#845ec2,
+    list:#ff5e78,
+    text:#314e52,
+    bg:#e7e6e1,
+    boxBg:#f7f6e7
+);
+
+@function color($colorname){
+    @return map-get($colors, $colorname )
+}
+
+
+$rad:10px;
+
+html{
+    font-size: 18px;
+}
+
+@keyframes changeButton {
+    0%{
+        background-color: color(boxBg);
+        color: color(list);
+
+    }100%{
+        background-color: color(list);
+        color: color(boxBg);
+    }
+}
+
+@keyframes changeImg {
+    0%{
+        opacity: 0.6;
+        transform: scale(1);
+    }100%{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.app__main__AllLists__lists__listBox{
+    display: flex;
+    border-bottom: 1px solid color(text);
+    margin-right: 6%;
+    margin-left: 1%;
+    align-items: center;
+
+    &__title{
+        margin-left: 4%;
+        font-size: 1rem;
+        width: 150px;
+
+        &:hover{
+            color: color(list);
+            cursor: pointer;
+        }
+    }
+    &__time{
+        margin-left: 20%;
+        font-size: 0.8rem;
+
+    }
+    &__edit{
+        background-color: color(boxBg);
+        border:2px solid color(list);
+        color: color(list);
+        border-radius: $rad;
+        height: 30px;
+        width: 60px;
+        cursor: pointer;
+        margin-left: 50px;
+
+        &:hover{
+        background-color: color(list);
+        color: color(boxBg);
+
+        animation-name: changeButton;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        
+        }
+    }
+    &__delete{
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        opacity: 0.6;
+        margin-left: 25%;
+
+        &:hover{
+            opacity: 1;
+            transform: scale(1.2);
+
+            animation-name: changeImg;
+            animation-duration: 0.2s;
+            animation-timing-function: ease-in-out;
+        }
+    }
+}

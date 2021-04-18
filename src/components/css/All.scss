@@ -1,0 +1,105 @@
+$colors:(
+    to:#ffe227,
+    do:#845ec2,
+    list:#ff5e78,
+    text:#314e52,
+    bg:#e7e6e1,
+    boxBg:#f7f6e7
+);
+
+@function color($colorname){
+    @return map-get($colors, $colorname )
+}
+
+@keyframes changeSaveButton {
+    0%{
+        
+        background-color: color(list);
+        color:color(boxBg);
+
+    }100%{
+        background-color: color(boxBg);
+        color: color(list);
+    }
+}
+
+
+$rad:10px;
+
+html{
+    font-size: 18px;
+}
+.app{
+    &__main{
+        &__empty{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            &__text{
+            font-family: 'Lobster', cursive;
+            color: color(list);
+            font-size:1.5rem;
+            }
+            &__comment{
+                font-size: 1rem;
+            }
+            &__img{
+                width: 150px;
+                height: 150px;
+                opacity:0.6;
+                margin-bottom: 20px;
+            }
+            &__btn{
+                width: 30%;
+                height: 40px;
+                border-radius: $rad;
+                border:2px solid color(list);
+                background-color: color(list);
+                color:color(boxBg);
+                font-family: 'Ubuntu Condensed', sans-serif;
+                font-size: 1rem;
+                &:hover{
+                    background-color: color(boxBg);
+                    color:color(list);
+                    cursor: pointer;
+
+                    animation-name: changeSaveButton;
+                    animation-duration:  0.4s;
+                    animation-timing-function: ease-in-out;
+                    
+                }
+            }
+        }
+        &__AllLists{
+            font-family: 'Ubuntu Condensed', sans-serif;
+            color:color(text);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 50px;
+
+            &__column{
+                margin-left:5%;
+                margin-right: 5%;
+                display: flex;
+                border-bottom: 2px solid color(text);
+                align-items: baseline;
+
+
+                &__title{
+                    margin-left:5%;
+                    font-size: 1.2rem;
+                }
+                &__modified{
+                    align-self: flex-end;
+                    margin-left:30%;
+                }
+            }
+            &__lists{
+                display: flex;
+                flex-direction: column;
+                margin-left: 5%;
+            }
+        }
+    }
+}

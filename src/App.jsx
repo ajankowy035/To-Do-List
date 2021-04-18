@@ -26,10 +26,9 @@ const App = () =>{
         const temp = JSON.stringify(lists);
         localStorage.setItem('lists',temp)
     },[lists]);
-
+ 
     //Update of existing list : getting parametrs from List component
     const updateList = (id,title,items)=>{
-        console.log(id);
 
         const updatedLists = lists.filter(list=>list.id!==id);
         setLists([...updatedLists]);//when changes are saving, old list is removing
@@ -46,14 +45,15 @@ const App = () =>{
         return;
     }
 
+    //saving a new list function, parametrs are from List component
     const saveLists = (title,items)=>{
-
+        //avoiding creating empty lists
         if (items.length===0){
             alert('It looks You try to save an empty To Do List! Try to plan some big things in little steps!')
             return
         };
             
-        
+        //defining new list
         const newList = {
             id:new Date().getTime(),
             title: title,
@@ -63,12 +63,11 @@ const App = () =>{
         
 
         //Verification if current list title is free
-        
         let titleVerifiction=false;
 
         lists.map(list=>{
             if (list.title === newList.title) titleVerifiction=true;
-            return;
+            return list;
         });
 
         if(!titleVerifiction){
@@ -82,19 +81,20 @@ const App = () =>{
         }
 
     }
-
+    //removing list from all lists, parametr from ListBox component
     const deleteList=(id)=>{
         // console.log(id);
         const updatedLists = lists.filter(list=>list.id!==id);
         setLists([...updatedLists]);
     }
-        
-    return (<article className='app' >
+       //rendering components using Route component 
+    return (
+        <article className='app' >
     <Nav />
 
     {lists.map(list=>{
         return (<Route path={`/${list.id}`} >
-        <List updateList={updateList} editId={list.id} title={list.title} lists={lists} saveLists={saveLists} />
+        <List key={list.id*Math.random()} updateList={updateList} editId={list.id} title={list.title} lists={lists} saveLists={saveLists} />
         </Route>);
     })}
 

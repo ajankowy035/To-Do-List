@@ -1,3 +1,55 @@
+@-webkit-keyframes showBorder {
+  0% {
+    border-bottom: 3px solid #f7f6e7;
+  }
+  100% {
+    border-bottom: 3px solid #ff5e78;
+  }
+}
+
+@keyframes showBorder {
+  0% {
+    border-bottom: 3px solid #f7f6e7;
+  }
+  100% {
+    border-bottom: 3px solid #ff5e78;
+  }
+}
+
+@-webkit-keyframes changeButton {
+  0% {
+    background-color: #f7f6e7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #ff5e78;
+  }
+  75% {
+    background-color: #ff5e78;
+    color: #f7f6e7;
+  }
+  100% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+
+@keyframes changeButton {
+  0% {
+    background-color: #f7f6e7;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #ff5e78;
+  }
+  75% {
+    background-color: #ff5e78;
+    color: #f7f6e7;
+  }
+  100% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+
 html {
   font-size: 18px;
 }
@@ -44,33 +96,62 @@ html {
   text-decoration: none;
 }
 
-.app__header__nav__item--new {
+.app__header__nav__item__new {
+  text-decoration: none;
+  color: #ff5e78;
+  font-weight: 600;
   border: 3px solid #ff5e78;
   border-radius: 10px;
   padding: 5px;
   text-align: center;
   height: 20px;
+  width: 80px;
 }
 
-.app__header__nav__item--new__text {
-  text-decoration: none;
-  color: #ff5e78;
-  font-weight: 600;
+.app__header__nav__item__new:hover {
+  color: #f7f6e7;
+  background-color: #ff5e78;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-animation-name: changeButton;
+          animation-name: changeButton;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 
-.app__header__nav__item--new__text:hover {
-  color: #ff4563;
-}
-
-.app__header__nav__item--my {
+.app__header__nav__item__my {
   margin-top: 5px;
+  width: 80px;
+  border-bottom: 3px solid #f7f6e7;
+  text-align: center;
 }
 
-.app__header__nav__item--help {
-  margin-top: 5px;
+.app__header__nav__item__my:hover {
+  border-bottom: 3px solid #ff5e78;
+  -webkit-animation-name: showBorder;
+          animation-name: showBorder;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
 }
 
-.app__header__nav__item--logOut {
+.app__header__nav__item__help {
   margin-top: 5px;
+  text-align: center;
+  width: 80px;
+  border-bottom: 3px solid #f7f6e7;
+}
+
+.app__header__nav__item__help:hover {
+  border-bottom: 3px solid #ff5e78;
+  -webkit-animation-name: showBorder;
+          animation-name: showBorder;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
 }
 /*# sourceMappingURL=Nav.css.map */
